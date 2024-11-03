@@ -1,9 +1,25 @@
 import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import SignIn from './pages/SignIn';
+import SignUp from './pages/SignUp';
 
 function App() {
   return (
-    <div className="App">
+    <Router>
+      <div className='App'>
+        <Routes>
+          <Route exact path='/' component={SignIn} />
+          <Route path='/signup' component={SignUp} />
+          <Route path='/home' component={Home} />
+        </Routes>
+      </div>
+    </Router>
+  );
+}
+function Home() {
+  return (
+    <div className='Home'>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -21,5 +37,4 @@ function App() {
     </div>
   );
 }
-
 export default App;
